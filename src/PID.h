@@ -10,12 +10,23 @@ public:
   double i_error;
   double d_error;
 
+  double total_error;
+  double prev_cte;
+
+  double def_throttle;
+  /*
+  * true: after it get first CTE
+  */
+  bool fstart;
+
+  int count;
   /*
   * Coefficients
   */ 
   double Kp;
   double Ki;
   double Kd;
+  double Kt; // throttle
 
   /*
   * Constructor
@@ -37,6 +48,8 @@ public:
   */
   void UpdateError(double cte);
 
+  double GetSteering();
+  double GetThrottle();
   /*
   * Calculate the total PID error.
   */
